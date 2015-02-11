@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/start_Layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/welcome_appname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_title"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:layout_weight="0.3"
+
+        />
+
+    <ImageView
+        android:id="@+id/welcome_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="400sp"
+        android:layout_weight="0.5"
+        android:scaleType="fitXY"
+        />
+
+    <TextView
+        android:id="@+id/welcome_appsubname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_subtitle"
+        android:gravity="center"
+        android:layout_weight="0.2"
+        android:textSize="30sp" />
+
+</LinearLayout>
