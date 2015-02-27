@@ -22,6 +22,7 @@ import java.io.ObjectInputValidation;
 
 /**
  * Created by JinLong on 2015/2/8.
+ * 文章显示碎片
  */
 public class ArticalFragment  extends Fragment {
 
@@ -45,6 +46,9 @@ public class ArticalFragment  extends Fragment {
         return view;
     }
 
+    /**
+     * 下线文章
+     */
     private void loadData() {
         File cacheDir = this.getActivity().getCacheDir();
         File acticalFile = new File(cacheDir, Config.LOCALFILENAME);

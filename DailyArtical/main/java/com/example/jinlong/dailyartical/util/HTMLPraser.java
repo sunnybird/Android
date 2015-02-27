@@ -19,6 +19,7 @@ import java.util.List;
 
 /**
  * Created by JinLong on 2015/2/8.
+ * Html解析成文章类
  */
 public class HTMLPraser {
     public static Artical getArticalsByHtml(StringBuilder builder)

@@ -4,6 +4,7 @@ import cn.bmob.v3.BmobObject;
 
 /**
  * Created by JinLong on 2015/2/8.
+ * 评论实体类
  */
 public class Comment extends BmobObject {
 

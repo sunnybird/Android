@@ -24,6 +24,7 @@ import java.net.MalformedURLException;
 
 /**
  * Created by JinLong on 2015/2/8.
+ * Http请求类
  */
 public class HttpAsyncTask extends AsyncTask<String, Integer, Artical> {
 
@@ -41,7 +42,6 @@ public class HttpAsyncTask extends AsyncTask<String, Integer, Artical> {
         this.imageview = imageView;
 
     }
-
     @Override
     protected Artical doInBackground(String... urls) {
 

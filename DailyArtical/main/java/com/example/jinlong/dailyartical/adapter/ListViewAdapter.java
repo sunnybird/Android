@@ -72,10 +72,8 @@ public class ListViewAdapter extends BaseAdapter {
         //userTextView = (TextView) convertView.findViewById(R.id.user);
         timeTextView = (TextView) convertView.findViewById(R.id.time);
         ImageviewAgree = (ImageView) convertView.findViewById(R.id.start_imageview);
-
         numberofStartTextView = (TextView) convertView
                 .findViewById(R.id.numberofstart);
-
         contentTextView.setText(listOfComment.get(position).getContent());
        // userTextView.setText(listOfComment.get(position).getUser());
         timeTextView.setText(listOfComment.get(position).getTime());
@@ -84,10 +82,7 @@ public class ListViewAdapter extends BaseAdapter {
         bundle.putCharSequence("obidetid", listOfComment.get(position).getObjectId());
         bundle.putInt("number",listOfComment.get(position).getFavour());
         ImageviewAgree.setTag(bundle);
-
-
         return convertView;
-
     }
 
 }

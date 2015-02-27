@@ -2,6 +2,7 @@ package com.example.jinlong.dailyartical.config;
 
 /**
  * Created by JinLong on 2015/2/8.
+ * 应用配置文件
  */
 public interface Config {
     String URL_DAY = "http://meiriyiwen.com/";

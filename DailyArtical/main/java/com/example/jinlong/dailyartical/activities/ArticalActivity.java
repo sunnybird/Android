@@ -26,15 +26,16 @@ import java.util.List;
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.listener.UpdateListener;
 
+/**
+ * 文章显示界面
+ */
 public class ArticalActivity extends FragmentActivity {
-
 
     private FragmentPagerAdapter fragmentPagerAdapter;
     private ViewPager mViewPager;
-
     private List<Fragment> listofFragment;
-
     private long exitTime = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,8 +67,9 @@ public class ArticalActivity extends FragmentActivity {
                         Toast.LENGTH_SHORT).show();
                 exitTime = System.currentTimeMillis();
             } else {
-                finish();
-                System.exit(0);
+
+                this.finish();
+
             }
             return true;
         }
@@ -79,7 +81,6 @@ public class ArticalActivity extends FragmentActivity {
      *
      * @param view
      */
-
     public void startAdd(View view) {
 
         Bundle bundle = (Bundle) view.getTag();
@@ -90,20 +91,14 @@ public class ArticalActivity extends FragmentActivity {
         updatecomm.update(this, objectid, new UpdateListener() {
             @Override
             public void onSuccess() {
-                // TODO Auto-generated method stub
-                //((CommentFragment) listOfFragment.get(0)).loadDate();
                 ((CommentFragment) listofFragment.get(1)).updateComment(objectid);
             }
             @Override
             public void onFailure(int code, String msg) {
-                // TODO Auto-generated method stub
                 Log.i("err", "更新失败：" + msg);
             }
         });
 
-
     }
-
-
 
 }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Created by JinLong on 2015/2/8.
+ * 文章实体类
  */
 public class Artical implements Serializable {
 

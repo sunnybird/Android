@@ -28,13 +28,13 @@ import cn.bmob.v3.listener.SaveListener;
 
 /**
  * Created by JinLong on 2015/2/8.
+ * 文章评论碎片
  */
 public class CommentFragment extends Fragment implements View.OnClickListener {
 
     private List<Comment> listOfComment;
     private ListViewAdapter adapter;
     private Context context;
-
     private ListView listview;
     private EditText et;
     private Button button;
@@ -64,6 +64,9 @@ public class CommentFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
+    /**
+     * 下载历时评论
+     */
     public void loadDate() {
         Date d = new Date();
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
@@ -92,6 +95,10 @@ public class CommentFragment extends Fragment implements View.OnClickListener {
 
     }
 
+    /**
+     * 发表评论
+     * @param view
+     */
     @Override
     public void onClick(View view) {
 
@@ -133,41 +140,26 @@ public class CommentFragment extends Fragment implements View.OnClickListener {
                 }
 
                 break;
-
-           /* case R.id.start_imageview:
-
-                Bundle bundle = (Bundle) view.getTag();
-                final String objectid = bundle.getString("obidetid");
-                int number = bundle.getInt("number");
-                Comment updatecomm = new Comment();
-                updatecomm.setFavour(number + 1);
-                updatecomm.update(context, objectid, new UpdateListener() {
-                    @Override
-                    public void onSuccess() {
-                        // TODO Auto-generated method stub
-                        //((CommentFragment) listOfFragment.get(0)).loadDate();
-                       updateComment(objectid);
-                    }
-                    @Override
-                    public void onFailure(int code, String msg) {
-                        // TODO Auto-generated method stub
-                        Log.i("err", "更新失败：" + msg);
-                    }
-                });*/
             default:
-                // loadDate();
+
                 break;
         }
 
     }
 
-
+    /**
+     * 发表评论结果反馈
+     * @param msg
+     */
     private void toast(String msg) {
 
         Toast.makeText(this.getActivity(), msg, Toast.LENGTH_SHORT).show();
 
     }
 
+    /**
+     * 初始化编辑框
+     */
     private void clearEditText() {
 
         et.setText("");

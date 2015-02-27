@@ -13,7 +13,9 @@ import android.view.View;
 import com.example.jinlong.dailyartical.activities.WelcomeActivity;
 import com.example.jinlong.dailyartical.config.Config;
 
-
+/**
+ * 应用启动入口Activity
+ */
 public class MainActivity extends ActionBarActivity {
 
     @Override
@@ -33,18 +35,23 @@ public class MainActivity extends ActionBarActivity {
         startNextActivity();
     }
 
+    /**
+     * 判断是否首次启动应用
+     * @return
+     */
      private boolean isFristStart() {
          SharedPreferences sp = getSharedPreferences(Config.SharePreferName, Context.MODE_PRIVATE);
          return sp.getBoolean(Config.ShareKey,false);
      }
 
+    /**
+     * 开始下一个Activity
+     */
     private void startNextActivity(){
-
         Intent intent = new Intent();
         intent.setClass(this, WelcomeActivity.class);
         startActivity(intent);
         finish();
-        Log.i("MainActivity", "finish()");
 
     }
 

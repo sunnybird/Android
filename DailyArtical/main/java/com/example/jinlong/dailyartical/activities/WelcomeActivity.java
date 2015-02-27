@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import com.example.jinlong.dailyartical.R;
 import com.example.jinlong.dailyartical.bean.Artical;
 import com.example.jinlong.dailyartical.config.Config;
-import com.example.jinlong.dailyartical.config.HTMLPraser;
+import com.example.jinlong.dailyartical.util.HTMLPraser;
 import com.example.jinlong.dailyartical.util.Decrypt;
 
 import org.apache.http.HttpResponse;
@@ -29,7 +29,9 @@ import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
 import java.util.Random;
 
-
+/**
+ * 欢迎界面
+ */
 public class WelcomeActivity extends ActionBarActivity {
 
     private static final int SUCCESS_LOAD = 0;
@@ -111,6 +113,10 @@ public class WelcomeActivity extends ActionBarActivity {
         thread.start();
     }
 
+    /**
+     * 保存文章到本地文件
+     * @param artical
+     */
     private void writeFile(Artical artical) {
         File cacheDir = this.getCacheDir();
         File acticalFile = new File(cacheDir, Config.LOCALFILENAME);
@@ -128,9 +134,11 @@ public class WelcomeActivity extends ActionBarActivity {
 
     }
 
+    /**
+     * 初始化界面图片
+     */
     private void initUI()   {
         int index = new Random().nextInt(90);
-
         String filepath = "images/bg_"+index+".jpg";
         Log.i("path=", filepath);
         try {
