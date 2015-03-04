@@ -38,7 +38,7 @@ public class WelcomeActivity extends ActionBarActivity {
     private static final int MAX_WAIT_TIME = 1000;
     //下载完成更新UI
     private Handler handler = new Handler() {
-
+		 	
         @Override
         public void handleMessage(Message msg) {
 
@@ -101,12 +101,13 @@ public class WelcomeActivity extends ActionBarActivity {
         }
 
     });
+    
     private ImageView imageView;
-
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         Log.i("WelcomeActivity","onCreate");
+        Log.i("WelcomeActivity","onCreate");
         setContentView(R.layout.activity_welcome);
         imageView = (ImageView) findViewById(R.id.welcome_imageview);
         initUI();

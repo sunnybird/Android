@@ -28,7 +28,7 @@ public class MainActivity extends ActionBarActivity {
     }
     public void onClick(View view) {
 
-        SharedPreferences sp = getSharedPreferences(Config.SharePreferName, Context.MODE_PRIVATE);
+        SharedPreferences sp = getSharedPreferences(Config.SHAREPREFERNAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putBoolean(Config.ShareKey, true);
         editor.commit();
@@ -40,7 +40,7 @@ public class MainActivity extends ActionBarActivity {
      * @return
      */
      private boolean isFristStart() {
-         SharedPreferences sp = getSharedPreferences(Config.SharePreferName, Context.MODE_PRIVATE);
+         SharedPreferences sp = getSharedPreferences(Config.SHAREPREFERNAME, Context.MODE_PRIVATE);
          return sp.getBoolean(Config.ShareKey,false);
      }
 

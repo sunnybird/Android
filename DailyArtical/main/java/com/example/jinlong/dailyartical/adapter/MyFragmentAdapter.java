@@ -11,24 +11,24 @@ import java.util.List;
  */
 public class MyFragmentAdapter extends FragmentPagerAdapter {
 
-    private List<Fragment> fragmentlist;
+    private List<Fragment> fragments;
 
-    public MyFragmentAdapter(FragmentManager fm, List<Fragment> fragmentlist) {
+    public MyFragmentAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
-        this.fragmentlist = fragmentlist;
+        this.fragments = fragments;
 
     }
 
     @Override
     public Fragment getItem(int index) {
 
-        return fragmentlist.get(index);
+        return fragments.get(index);
     }
 
     @Override
     public int getCount() {
 
-        return fragmentlist.size();
+        return fragments.size();
     }
 }
 

@@ -32,8 +32,8 @@ import cn.bmob.v3.listener.UpdateListener;
 public class ArticalActivity extends FragmentActivity {
 
     private FragmentPagerAdapter fragmentPagerAdapter;
-    private ViewPager mViewPager;
-    private List<Fragment> listofFragment;
+    private ViewPager viewPager;
+    private List<Fragment> fragments;
     private long exitTime = 0;
 
     @Override
@@ -43,20 +43,20 @@ public class ArticalActivity extends FragmentActivity {
 
         Bmob.initialize(this, Config.bmobAppKey);
 
-        listofFragment = new ArrayList<Fragment>();
+        fragments = new ArrayList<Fragment>();
 
-        listofFragment.add(new ArticalFragment());
-        listofFragment.add(new CommentFragment());
+        fragments.add(new ArticalFragment());
+        fragments.add(new CommentFragment());
 
-        fragmentPagerAdapter = new MyFragmentAdapter(getSupportFragmentManager(),listofFragment);
+        fragmentPagerAdapter = new MyFragmentAdapter(getSupportFragmentManager(),fragments);
 
-        mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(fragmentPagerAdapter);
+        viewPager = (ViewPager) findViewById(R.id.pager);
+        viewPager.setAdapter(mFragmentPagerAdapter);
 
     }
 
     /**
-     * 返回键事件监听
+     * 返回键事件监听,双击退出应用
      */
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -85,13 +85,15 @@ public class ArticalActivity extends FragmentActivity {
 
         Bundle bundle = (Bundle) view.getTag();
         final String objectid = bundle.getString("obidetid");
-        int number = bundle.getInt("number");
-        Comment updatecomm = new Comment();
-        updatecomm.setFavour(number + 1);
-        updatecomm.update(this, objectid, new UpdateListener() {
+        int numberStart = bundle.getInt("number");
+		
+        Comment comment = new Comment();
+        comment.setFavour(numberStart + 1);
+		
+        comment.update(this, objectid, new UpdateListener() {
             @Override
             public void onSuccess() {
-                ((CommentFragment) listofFragment.get(1)).updateComment(objectid);
+                ((CommentFragment) fragments.get(1)).updateComment(objectid);
             }
             @Override
             public void onFailure(int code, String msg) {

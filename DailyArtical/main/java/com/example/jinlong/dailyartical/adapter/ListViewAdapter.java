@@ -19,47 +19,44 @@ import java.util.List;
  */
 public class ListViewAdapter extends BaseAdapter {
 
-    @Override
+    private List<Comment> comments;
+    private LayoutInflater inflater;
+    private Context context ;
+
+    public ListViewAdapter(Context context, List<Comment> comments) {
+        context = context;
+        inflater = LayoutInflater.from(mContext);
+        this.comments = comments;
+
+    }
+	
+   @Override
     public boolean isEnabled(int position) {
-        // TODO Auto-generated method stub
+      
         return false;
     }
-
-    private List<Comment> listOfComment;
-
-    private LayoutInflater mInflater;
-    private Context mContext = null;
-
-    public ListViewAdapter(Context context, List<Comment> listOfCotent) {
-        mContext = context;
-        mInflater = LayoutInflater.from(mContext);
-        this.listOfComment = listOfCotent;
-
-    }
-
     @Override
     public int getCount() {
 
-        return listOfComment.size();
+        return comments.size();
     }
 
     @Override
     public Object getItem(int index) {
-        // TODO Auto-generated method stub
-        return listOfComment.get(index);
+      
+        return comments.get(index);
     }
 
     @Override
     public long getItemId(int arg0) {
-        // TODO Auto-generated method stub
+     
         return 0;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        TextView contentTextView;
-       // TextView userTextView;
+        TextView contentTextView;     
         TextView timeTextView;
         ImageView ImageviewAgree;
         TextView numberofStartTextView;
@@ -68,20 +65,21 @@ public class ListViewAdapter extends BaseAdapter {
 
             convertView = mInflater.inflate(R.layout.listview_item, null);
         }
-        contentTextView = (TextView) convertView.findViewById(R.id.comment);
-        //userTextView = (TextView) convertView.findViewById(R.id.user);
+		
+        contentTextView = (TextView) convertView.findViewById(R.id.comment);       
         timeTextView = (TextView) convertView.findViewById(R.id.time);
         ImageviewAgree = (ImageView) convertView.findViewById(R.id.start_imageview);
-        numberofStartTextView = (TextView) convertView
-                .findViewById(R.id.numberofstart);
+        numberofStartTextView = (TextView) convertView.findViewById(R.id.numberofstart);
+				
         contentTextView.setText(listOfComment.get(position).getContent());
-       // userTextView.setText(listOfComment.get(position).getUser());
         timeTextView.setText(listOfComment.get(position).getTime());
         numberofStartTextView.setText(listOfComment.get(position).getFavour()+"");
+		
         Bundle bundle = new Bundle();
         bundle.putCharSequence("obidetid", listOfComment.get(position).getObjectId());
         bundle.putInt("number",listOfComment.get(position).getFavour());
         ImageviewAgree.setTag(bundle);
+		
         return convertView;
     }
 

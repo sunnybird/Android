@@ -7,8 +7,8 @@ package com.example.jinlong.dailyartical.config;
 public interface Config {
     String URL_DAY = "http://meiriyiwen.com/";
     String URL_DAY_RANDOM ="http://meiriyiwen.com/random";
-    String bmobAppKey ="8d0b7f9ceeeef292714a518f72095101";
+    String BMOBAPPKEY ="8d0b7f9ceeeef292714a518f72095101";
     String LOCALFILENAME="Artical.dat";
-    String SharePreferName="setting";
-    String ShareKey = "IsInit";
+    String SHAREPREFERNAME="setting";
+    String SHAREKEY = "IsInit";
 }

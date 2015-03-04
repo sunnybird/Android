@@ -10,22 +10,24 @@ public class Artical implements Serializable {
 
 
     private String Title;
-
+    private String Author;
+    private String Content;
+    private String ImageUri;
+	
     public Artical(){
 
     }
     public Artical(String title, String author, String content) {
-        super();
+        
         Title = title;
         Author = author;
         Content = content;
         int num = (int) (Math.random() * 99 + 1);
         ImageUri = "http://meiriyiwen.com/images/new_feed/bg_" + num + ".jpg";
+		
     }
 
-    private String Author;
-    private String Content;
-    private String ImageUri;
+   
 
     public String getTitle() {
         return Title;

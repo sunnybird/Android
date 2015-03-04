@@ -10,6 +10,7 @@ import java.util.List;
  * Created by JinLong on 2015/2/9.
  */
 public class Decrypt {
+	
     public static Decrypt decrypt = null ;
 
     public static Decrypt getInstance(){
@@ -18,8 +19,7 @@ public class Decrypt {
         }
         return decrypt;
     }
-    private  Decrypt(){
-
+   
     }
     public  byte[] decrypt(InputStream input,String key,int index )throws Exception{
 

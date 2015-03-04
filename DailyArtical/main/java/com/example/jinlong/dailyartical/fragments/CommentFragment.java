@@ -170,11 +170,13 @@ public class CommentFragment extends Fragment implements View.OnClickListener {
 
         for (Comment mcomm : listOfComment) {
             if (mcomm.getObjectId().equals(objectid)) {
+				
                 mcomm.setFavour(mcomm.getFavour() + 1);
 
                 break;
             }
         }
+		
         adapter.notifyDataSetChanged();
     }
 
